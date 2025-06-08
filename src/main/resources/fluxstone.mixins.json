@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.tracystacktrace.fluxstone.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "AccessorGuiSelectWorld",
+    "MixinGuiSelectWorld",
+    "MixinInsideGuiWorldSlot",
+    "MixinSaveFormatComparator"
+  ]
+}
