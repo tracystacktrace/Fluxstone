@@ -70,4 +70,20 @@ public final class CloseNativeHandler {
         }
         return false;
     }
+
+    public static long getFolderSize(File file) {
+        try {
+            return Files.walk(file.toPath()).filter(p -> p.toFile().isFile()).mapToLong(p -> p.toFile().length()).sum();
+        } catch (IOException e) {
+            return -1;
+        }
+    }
+
+    public static String humanFriendlySize(long bytes) {
+        if (bytes < 1024) {
+            return bytes + " B";
+        }
+        int exp = (int) (Math.log(bytes) / Math.log(1024));
+        return String.format("%.4f %s", bytes / Math.pow(1024, exp), "KMGTPE".charAt(exp - 1) + "B");
+    }
 }

@@ -1,6 +1,7 @@
 package net.tracystacktrace.fluxstone.mixins;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiSelectWorld;
 import net.minecraft.client.renderer.world.Tessellator;
@@ -14,6 +15,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(targets = "net.minecraft.client.gui.GuiSelectWorld$GuiWorldSlot")
@@ -31,9 +33,22 @@ public abstract class MixinInsideGuiWorldSlot extends Gui {
         if (Fluxstone.CONFIG.enableBookmarkGradient) {
             SaveFormatComparator save = SafeCasts.getSaveListOf(this$0).get(index);
             if (((IBookmark) save).isBookmarked()) {
-                this.drawGradientRect(x + 32.0f, y, x + 248f, y + 32.0f, 0xff52349B, 0xff291755);
+                this.drawGradientRect(x + 32.0f, y, x + 248f, y + 32.0f, Fluxstone.getGradByType(true), Fluxstone.getGradByType(false));
             }
         }
+    }
+
+    @Redirect(method = "drawSlot", at = @At(value = "INVOKE", target = "Lnet/minecraft/common/world/chunk/SaveFormatComparator;getDisplayName()Ljava/lang/String;"))
+    private String fluxstone$insertBookmarkIcon(SaveFormatComparator instance) {
+        if(Fluxstone.CONFIG.enableBookmarkIcon && ((IBookmark)instance).isBookmarked()) {
+            return instance.getDisplayName() + " " + Fluxstone.CONFIG.bookmarkIcon;
+        }
+        return instance.getDisplayName();
+    }
+
+    @Redirect(method = "drawSlot", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiSelectWorld;drawString(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;FFI)V"))
+    private void fluxstone$makeStringBrighter(GuiSelectWorld instance, FontRenderer fontRenderer, String s, float x, float y, int i) {
+        instance.drawString(fontRenderer, s, x, y, i != 0x00FFFFFF ? 0x00C4C4C4 : 0x00FFFFFF);
     }
 
     @Inject(method = "elementClicked", at = @At("TAIL"))

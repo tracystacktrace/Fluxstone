@@ -1,4 +1,5 @@
 config.fluxstone.enableBookmarkIcon.name=§dBookmark Icon§r
 config.fluxstone.enableBookmarkGradient.name=§dBookmark Gradient§r
-config.fluxstone.pushBookmarkedFirstOrder.name=§dBookmark First Sort§r
+config.fluxstone.pushBookmarkedFirstOrder.name=§dBookmarked Goes First§r
 config.fluxstone.enableWorldCheatToggle.name=§cWorld Modifications§r
+config.fluxstone.bookmarkGradientType.name=§dBookmark Grad. Type§r

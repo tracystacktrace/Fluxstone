@@ -39,7 +39,7 @@ public class GuiConfigureWorld extends GuiScreen {
         final long datePlay = save.func_22163_e();
         this.beautifulLastPlayed = "Last Played: \u00A7a" + sdf.format(new Date(datePlay));
 
-        this.beautifulWorldSize = "Size: \u00A7b" + humanFriendlySize(getFolderSize(this.worldFolder));
+        this.beautifulWorldSize = "Size: \u00A7b" + CloseNativeHandler.humanFriendlySize(CloseNativeHandler.getFolderSize(this.worldFolder));
 
         this.enableCheats = save.getCheatsEnabled();
         this.enableCreative = save.getGameType() == 1;
@@ -142,22 +142,5 @@ public class GuiConfigureWorld extends GuiScreen {
 
         ((GuiButton) this.controlList.get(2)).enabled = Fluxstone.CONFIG.enableWorldCheatToggle;
         ((GuiButton) this.controlList.get(3)).enabled = Fluxstone.CONFIG.enableWorldCheatToggle;
-    }
-
-
-    public static long getFolderSize(File file) {
-        try {
-            return Files.walk(file.toPath()).filter(p -> p.toFile().isFile()).mapToLong(p -> p.toFile().length()).sum();
-        } catch (IOException e) {
-            return -1;
-        }
-    }
-
-    public static String humanFriendlySize(long bytes) {
-        if (bytes < 1024) {
-            return bytes + " B";
-        }
-        int exp = (int) (Math.log(bytes) / Math.log(1024));
-        return String.format("%.4f %s", bytes / Math.pow(1024, exp), "KMGTPE".charAt(exp - 1) + "B");
     }
 }
