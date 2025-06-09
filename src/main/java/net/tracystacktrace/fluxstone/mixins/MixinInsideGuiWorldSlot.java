@@ -40,7 +40,7 @@ public abstract class MixinInsideGuiWorldSlot extends Gui {
 
     @Redirect(method = "drawSlot", at = @At(value = "INVOKE", target = "Lnet/minecraft/common/world/chunk/SaveFormatComparator;getDisplayName()Ljava/lang/String;"))
     private String fluxstone$insertBookmarkIcon(SaveFormatComparator instance) {
-        if(Fluxstone.CONFIG.enableBookmarkIcon && ((IBookmark)instance).isBookmarked()) {
+        if (Fluxstone.CONFIG.enableBookmarkIcon && ((IBookmark) instance).isBookmarked()) {
             return instance.getDisplayName() + " " + Fluxstone.CONFIG.bookmarkIcon;
         }
         return instance.getDisplayName();

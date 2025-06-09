@@ -30,16 +30,21 @@ public class GuiConfigureWorld extends GuiScreen {
     protected boolean enableCreative;
     protected boolean changesTriggered;
 
+    protected final String labelGeneralOn;
+    protected final String labelGeneralOff;
+
     public GuiConfigureWorld(GuiScreen parentScreen, SaveFormatComparator save) {
         this.parentScreen = parentScreen;
         this.worldFolder = AdvancedBookmarkManager.getReindevWorldFile(save.getFileName());
 
-        this.beautifulWorldName = "Name: §a" + save.getDisplayName() + " §r(§c" + save.getFileName() + "§r)";
+        final StringTranslate translate = StringTranslate.getInstance();
 
-        final long datePlay = save.func_22163_e();
-        this.beautifulLastPlayed = "Last Played: §a" + sdf.format(new Date(datePlay));
+        this.labelGeneralOff = translate.translateKey("fluxstone.act.off");
+        this.labelGeneralOn = translate.translateKey("fluxstone.act.on");
 
-        this.beautifulWorldSize = "Size: §b" + CloseNativeHandler.humanFriendlySize(CloseNativeHandler.getFolderSize(this.worldFolder));
+        this.beautifulWorldName = translate.translateKeyFormat("fluxstone.worldmanager.name", save.getDisplayName(), save.getFileName());
+        this.beautifulWorldSize = translate.translateKeyFormat("fluxstone.worldmanager.size", CloseNativeHandler.humanFriendlySize(CloseNativeHandler.getFolderSize(this.worldFolder)));
+        this.beautifulLastPlayed = translate.translateKeyFormat("fluxstone.worldmanager.lastplay", sdf.format(new Date(save.func_22163_e())));
 
         this.enableCheats = save.getCheatsEnabled();
         this.enableCreative = save.getGameType() == 1;
@@ -54,10 +59,10 @@ public class GuiConfigureWorld extends GuiScreen {
 
         final StringTranslate translate = StringTranslate.getInstance();
 
-        this.controlList.add(new GuiButton(0, offsetX, offsetY + 46, 180, 20, "Open world folder"));
-        this.controlList.add(new GuiButton(1, offsetX, offsetY + 46 + 30, 180, 20, "Backup world to .zip"));
-        this.controlList.add(new GuiButton(2, offsetX, offsetY + 46 + 60, 85, 20, "Cheats:"));
-        this.controlList.add(new GuiButton(3, offsetX + 95, offsetY + 46 + 60, 85, 20, "Creative:"));
+        this.controlList.add(new GuiButton(0, offsetX, offsetY + 46, 180, 20, translate.translateKey("fluxstone.worldmanager.act.open")));
+        this.controlList.add(new GuiButton(1, offsetX, offsetY + 46 + 30, 180, 20, translate.translateKey("fluxstone.worldmanager.act.backup")));
+        this.controlList.add(new GuiButton(2, offsetX, offsetY + 46 + 60, 85, 20, translate.translateKey("fluxstone.worldmanager.switch.cheats")));
+        this.controlList.add(new GuiButton(3, offsetX + 95, offsetY + 46 + 60, 85, 20, translate.translateKey("fluxstone.worldmanager.switch.creative")));
         this.updateButtonsNames();
 
         this.controlList.add(new GuiButton(4, offsetX, offsetY + 46 + 90, 180, 20, translate.translateKey("gui.done")));
@@ -130,8 +135,9 @@ public class GuiConfigureWorld extends GuiScreen {
     }
 
     private void updateButtonsNames() {
-        ((GuiButton) this.controlList.get(2)).displayString = "Cheats: " + (this.enableCheats ? "ON" : "OFF");
-        ((GuiButton) this.controlList.get(3)).displayString = "Creative: " + (this.enableCreative ? "ON" : "OFF");
+        final StringTranslate translate = StringTranslate.getInstance();
+        ((GuiButton) this.controlList.get(2)).displayString = translate.translateKeyFormat("fluxstone.worldmanager.switch.cheats", (this.enableCheats ? labelGeneralOn : labelGeneralOff));
+        ((GuiButton) this.controlList.get(3)).displayString = translate.translateKeyFormat("fluxstone.worldmanager.switch.creative", (this.enableCreative ? labelGeneralOn : labelGeneralOff));
 
         ((GuiButton) this.controlList.get(2)).enabled = Fluxstone.CONFIG.enableWorldCheatToggle;
         ((GuiButton) this.controlList.get(3)).enabled = Fluxstone.CONFIG.enableWorldCheatToggle;

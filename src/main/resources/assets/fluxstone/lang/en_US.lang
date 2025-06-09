@@ -4,6 +4,18 @@ config.fluxstone.pushBookmarkedFirstOrder.name=§dBookmarked Goes First§r
 config.fluxstone.enableWorldCheatToggle.name=§cWorld Modifications§r
 config.fluxstone.bookmarkGradientType.name=§dBookmark Grad. Type§r
 
+fluxstone.worldmanager.name=Name: §a%s §r(§c%s§r)
+fluxstone.worldmanager.lastplay=Last Played: §a%s
+fluxstone.worldmanager.size=Size: §b%s
+
+fluxstone.worldmanager.act.open=Open world folder
+fluxstone.worldmanager.act.backup=Backup world to .zip
+
+fluxstone.worldmanager.switch.cheats=Cheats %s
+fluxstone.worldmanager.switch.creative=Creative %s
+
+fluxstone.act.on=ON
+fluxstone.act.off=OFF
 
 fluxstone.manualbackup.running=§bThe backup process is running off-thread, polling...§r
 fluxstone.manualbackup.terminate=Press §e[O]§r to terminate and force quit! (in case of stuck)

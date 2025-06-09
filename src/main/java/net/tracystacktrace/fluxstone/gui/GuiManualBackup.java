@@ -8,7 +8,7 @@ import java.io.File;
 
 public class GuiManualBackup extends GuiScreen {
 
-    public static String[] OUTCOMES = new String[] {
+    public static String[] OUTCOMES = new String[]{
             "success", "error.dialog", "error.zipio", "error.interrupt"
     };
 
@@ -37,7 +37,7 @@ public class GuiManualBackup extends GuiScreen {
         //check status
         byte status = threadManualBackup.getStatus();
 
-        if(status != -1) {
+        if (status != -1) {
             this.infoString = StringTranslate.getInstance().translateKey("fluxstone.manualbackup." + OUTCOMES[status]);
             this.finished = true;
         }
@@ -46,17 +46,17 @@ public class GuiManualBackup extends GuiScreen {
 
     @Override
     public void keyTyped(char eventChar, int eventKey) {
-        if(!finished && eventChar == 'o') {
+        if (!finished && eventChar == 'o') {
             System.out.println("Sending interrupt signal to " + threadManualBackup.toString());
             threadManualBackup.interrupt();
             return;
         }
 
-        if(!finished && (eventChar == '\r' || eventKey == 1)) {
+        if (!finished && (eventChar == '\r' || eventKey == 1)) {
             return;
         }
 
-        if(finished && eventChar == '\r') {
+        if (finished && eventChar == '\r') {
             this.mc.displayGuiScreen(this.parentScreen);
             return;
         }
@@ -74,12 +74,12 @@ public class GuiManualBackup extends GuiScreen {
     public void drawScreen(float mouseX, float mouseY, float deltaTicks) {
         this.drawDefaultBackground();
 
-        if(!finished) {
+        if (!finished) {
             this.drawCenteredString(fontRenderer, this.infoTerminate, this.width / 2, this.height / 2 - 32, 0xffffffff);
         }
 
         this.drawCenteredString(fontRenderer, this.infoString, this.width / 2, this.height / 2 - 16, 0xffffffff);
-        if(finished) {
+        if (finished) {
             this.drawCenteredString(fontRenderer, this.infoContinue, this.width / 2, this.height / 2 + 4, 0xffffffff);
         }
 
