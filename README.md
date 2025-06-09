@@ -1,5 +1,7 @@
 # Fluxstone
 
+![MOD LOGO](https://github.com/tracystacktrace/Fluxstone/raw/main/src/main/resources/assets/fluxstone/icon.png)
+
 This mod adds world bookmarks (or "pins" to your worlds in world list) and also allows you to do some small management over your worlds.
 
 Currently available features are:
@@ -9,20 +11,22 @@ Currently available features are:
 
 This is a client-side mod, which uses [FoxLoader](https://github.com/Fox2Code/FoxLoader) mod loader for ReIndev (2.9)
 
-![alt text](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/showcase_1.png)
+![Bookmarks for your worlds!](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/showcase_1.png)
 
-![alt text](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/showcase_2.png)
+![World Manager GUI](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/showcase_2.png)
+
+![Easily backup your worlds!](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/showcase_3.png)
 
 
 ## Quick Config Guide
 
-![alt text](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/guide_1.png)
+![Guide, screenshot 1](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/guide_1.png)
 
-![alt text](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/guide_2.png)
+![Guide, screenshot 2](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/guide_2.png)
 
-![alt text](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/guide_3.png)
+![Guide, screenshot 3](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/guide_3.png)
 
-![alt text](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/guide_4.png)
+![Guide, screenshot 4](https://github.com/tracystacktrace/Fluxstone/raw/main/docs/guide_4.png)
 
 
 ## Installation
