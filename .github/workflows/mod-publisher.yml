@@ -50,11 +50,7 @@ jobs:
         id: changelog
         run: |
           VERSION="${{ github.ref_name }}"
-          SECTION=$(awk -v version="$VERSION" '
-            BEGIN { print=0 }
-            /^## \[/ { if ($0 ~ "\\[" version "\\]") print=1; else print=0 }
-            print
-          ' CHANGELOG.md)
+          SECTION=$(sed -n "/^## \\[$VERSION\\]/,/^## \\[/p" CHANGELOG.md | sed '$d')
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
           echo "$SECTION" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
