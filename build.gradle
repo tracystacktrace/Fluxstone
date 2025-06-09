@@ -9,6 +9,7 @@ buildscript {
 }
 
 apply plugin: 'foxloader.dev'
+apply plugin: 'maven-publish'
 
 group = 'net.tracystacktrace'
 version = '1.0.1'
@@ -44,4 +45,26 @@ foxloader {
     modDesc()
     modDesc("\u00A76License: \u00A7aApache License 2.0")
     modDesc("\u00A76Sources: \u00A79https://github.com/tracystacktrace/Fluxstone")
+}
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'net.tracystacktrace'
+            version = project.version
+
+            from(components.java)
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/tracystacktrace/Fluxstone"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
