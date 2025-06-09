@@ -34,12 +34,12 @@ public class GuiConfigureWorld extends GuiScreen {
         this.parentScreen = parentScreen;
         this.worldFolder = AdvancedBookmarkManager.getReindevWorldFile(save.getFileName());
 
-        this.beautifulWorldName = "Name: \u00A7a" + save.getDisplayName() + " \u00A7r(\u00A7c" + save.getFileName() + "\u00A7r)";
+        this.beautifulWorldName = "Name: §a" + save.getDisplayName() + " §r(§c" + save.getFileName() + "§r)";
 
         final long datePlay = save.func_22163_e();
-        this.beautifulLastPlayed = "Last Played: \u00A7a" + sdf.format(new Date(datePlay));
+        this.beautifulLastPlayed = "Last Played: §a" + sdf.format(new Date(datePlay));
 
-        this.beautifulWorldSize = "Size: \u00A7b" + CloseNativeHandler.humanFriendlySize(CloseNativeHandler.getFolderSize(this.worldFolder));
+        this.beautifulWorldSize = "Size: §b" + CloseNativeHandler.humanFriendlySize(CloseNativeHandler.getFolderSize(this.worldFolder));
 
         this.enableCheats = save.getCheatsEnabled();
         this.enableCreative = save.getGameType() == 1;
@@ -49,18 +49,18 @@ public class GuiConfigureWorld extends GuiScreen {
     public void initGui() {
         this.controlList.clear();
 
-        final int offsetX = this.width / 2 - 70;
+        final int offsetX = this.width / 2 - 90;
         final int offsetY = this.height / 2 - 78;
 
         final StringTranslate translate = StringTranslate.getInstance();
 
-        this.controlList.add(new GuiButton(0, offsetX, offsetY + 46, 140, 20, "Open world folder"));
-        this.controlList.add(new GuiButton(1, offsetX, offsetY + 46 + 30, 140, 20, "Backup world to .zip"));
-        this.controlList.add(new GuiButton(2, offsetX, offsetY + 46 + 60, 65, 20, "Cheats:"));
-        this.controlList.add(new GuiButton(3, offsetX + 75, offsetY + 46 + 60, 65, 20, "Creative:"));
+        this.controlList.add(new GuiButton(0, offsetX, offsetY + 46, 180, 20, "Open world folder"));
+        this.controlList.add(new GuiButton(1, offsetX, offsetY + 46 + 30, 180, 20, "Backup world to .zip"));
+        this.controlList.add(new GuiButton(2, offsetX, offsetY + 46 + 60, 85, 20, "Cheats:"));
+        this.controlList.add(new GuiButton(3, offsetX + 95, offsetY + 46 + 60, 85, 20, "Creative:"));
         this.updateButtonsNames();
 
-        this.controlList.add(new GuiButton(4, offsetX, offsetY + 46 + 90, 140, 20, translate.translateKey("gui.done")));
+        this.controlList.add(new GuiButton(4, offsetX, offsetY + 46 + 90, 180, 20, translate.translateKey("gui.done")));
     }
 
     @Override
@@ -75,14 +75,7 @@ public class GuiConfigureWorld extends GuiScreen {
             }
 
             if (guiButton.id == 1) {
-                File chosenPath = CloseNativeHandler.proceedToSave(this.worldFolder.getName() + "_" + CloseNativeHandler.getCurrentTimestamp() + ".zip");
-                if (chosenPath != null) {
-                    boolean successBackup = CloseNativeHandler.zipFolder(this.worldFolder, chosenPath);
-                    System.out.println(chosenPath);
-                    if (successBackup) {
-                        this.mc.displayGuiScreen(parentScreen);
-                    }
-                }
+                this.mc.displayGuiScreen(new GuiManualBackup(this, this.worldFolder));
             }
 
             if (guiButton.id == 2) {

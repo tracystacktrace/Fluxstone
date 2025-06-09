@@ -16,7 +16,7 @@ import java.util.zip.ZipOutputStream;
  * Methods to work with OS, reading/writing files, etc
  */
 public final class CloseNativeHandler {
-    public static File proceedToSave(String name) {
+    public static File openSaveDialog(String name) {
         FileDialog fileDialog = new FileDialog((Frame) null, "Backup World", FileDialog.SAVE);
 
         fileDialog.setFile(name);
@@ -28,7 +28,9 @@ public final class CloseNativeHandler {
         String file = fileDialog.getFile();
         String dir = fileDialog.getDirectory();
 
-        if (file != null && dir != null) return new File(dir, file);
+        if (file != null && dir != null) {
+            return new File(dir, file);
+        }
         return null;
     }
 
@@ -37,7 +39,7 @@ public final class CloseNativeHandler {
         return LocalDateTime.now().format(formatter);
     }
 
-    public static boolean zipFolder(File sourceFolder, File targetZip) {
+    public static byte zipFolder(File sourceFolder, File targetZip) {
         try (FileOutputStream fos = new FileOutputStream(targetZip); ZipOutputStream zos = new ZipOutputStream(fos)) {
             Path sourcePath = sourceFolder.toPath();
             String folderName = sourceFolder.getName();
@@ -63,12 +65,12 @@ public final class CloseNativeHandler {
                             throw new UncheckedIOException(e);
                         }
                     });
-            return true;
+            return 0;
         } catch (IOException e) {
             System.out.println("Failed to archive: " + e.getMessage());
             e.printStackTrace();
+            return 2; //ZIP IO Exception
         }
-        return false;
     }
 
     public static long getFolderSize(File file) {

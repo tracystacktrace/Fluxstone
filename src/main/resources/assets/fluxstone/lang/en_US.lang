@@ -3,3 +3,12 @@ config.fluxstone.enableBookmarkGradient.name=§dBookmark Gradient§r
 config.fluxstone.pushBookmarkedFirstOrder.name=§dBookmarked Goes First§r
 config.fluxstone.enableWorldCheatToggle.name=§cWorld Modifications§r
 config.fluxstone.bookmarkGradientType.name=§dBookmark Grad. Type§r
+
+
+fluxstone.manualbackup.running=§bThe backup process is running off-thread, polling...§r
+fluxstone.manualbackup.terminate=Press §e[O]§r to terminate and force quit! (in case of stuck)
+fluxstone.manualbackup.continue=Press §e[ENTER]§r to continue
+fluxstone.manualbackup.success=Successfully backed up the file!
+fluxstone.manualbackup.error.dialog=Failed to get data from save dialog! :(
+fluxstone.manualbackup.error.zipio=Failed to archive the world into a zip file! :(
+fluxstone.manualbackup.error.interrupt=The process was cancelled by a user (pressed §e[O]§r)
