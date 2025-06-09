@@ -34,9 +34,13 @@ foxloader {
     modVersion = project.version
     modAuthors = "fluxstone"
     modMain = "net.tracystacktrace.fluxstone.Fluxstone"
-    modDesc("\u00A7dSmall world bookmark + management helper!")
+    modDesc("\u00A7bBookmark and manage your local worlds")
     modDesc()
-    modDesc("\u00A76Use \"Configure mod\" to tweak behavior")
+    modDesc("\u00A79- Bookmark and sort out your favorite worlds!")
+    modDesc("\u00A73- Easily backup a world with manual backup option!")
+    modDesc("\u00A79- Change a world's features (cheats/creative) with a click! (Can be disabled in configs)")
+    modDesc()
+    modDesc("\u00A76The mod behavior can be tweaked within the \"\u00A7aConfigure\u00A76\" menu!")
     modDesc()
     modDesc("\u00A76License: \u00A7aApache License 2.0")
     modDesc("\u00A76Sources: \u00A79https://github.com/tracystacktrace/Fluxstone")

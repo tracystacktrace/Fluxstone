@@ -11,8 +11,8 @@ fluxstone.worldmanager.size=Size: §b%s
 fluxstone.worldmanager.act.open=Open world folder
 fluxstone.worldmanager.act.backup=Backup world to .zip
 
-fluxstone.worldmanager.switch.cheats=Cheats %s
-fluxstone.worldmanager.switch.creative=Creative %s
+fluxstone.worldmanager.switch.cheats=Cheats: %s
+fluxstone.worldmanager.switch.creative=Creative: %s
 
 fluxstone.act.on=ON
 fluxstone.act.off=OFF

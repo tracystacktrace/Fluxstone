@@ -1,0 +1,26 @@
+config.fluxstone.enableBookmarkIcon.name=§dИконка закладки§r
+config.fluxstone.enableBookmarkGradient.name=§dГрадиент закладки§r
+config.fluxstone.pushBookmarkedFirstOrder.name=§dЗакладки идут первыми§r
+config.fluxstone.enableWorldCheatToggle.name=§cМодификации мира§r
+config.fluxstone.bookmarkGradientType.name=§dТип градиента закладки§r
+
+fluxstone.worldmanager.name=Название: §a%s §r(§c%s§r)
+fluxstone.worldmanager.lastplay=Посл. посещение: §a%s
+fluxstone.worldmanager.size=Размер: §b%s
+
+fluxstone.worldmanager.act.open=Открыть папку мира
+fluxstone.worldmanager.act.backup=Сохранить мир в .zip
+
+fluxstone.worldmanager.switch.cheats=Читы: %s
+fluxstone.worldmanager.switch.creative=Креатив: %s
+
+fluxstone.act.on=ВКЛ
+fluxstone.act.off=ВЫКЛ
+
+fluxstone.manualbackup.running=§bПроцесс сохранения запущен в фоновом режиме, ожидаю...§r
+fluxstone.manualbackup.terminate=Нажмите §e[O]§r чтобы остановить процесс! (если программа не ответчает)
+fluxstone.manualbackup.continue=Нажмите §e[ENTER]§r чтобы продолжить
+fluxstone.manualbackup.success=Мир был успешно сохранен!
+fluxstone.manualbackup.error.dialog=Не удалось получить данные с диалога сохранения! :(
+fluxstone.manualbackup.error.zipio=Не удалось архивировать мир! :(
+fluxstone.manualbackup.error.interrupt=Сохранение было отменено пользователем (нажато §e[O]§r)
