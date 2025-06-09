@@ -13,7 +13,7 @@ public final class FluxstoneConfig {
     @ConfigEntry
     public boolean enableBookmarkGradient = true;
 
-    @ConfigEntry(lowerBounds = 0, upperBounds = 1)
+    @ConfigEntry(lowerBounds = 0, upperBounds = 2)
     public int bookmarkGradientType = 0;
 
     @ConfigEntry
@@ -26,7 +26,7 @@ public final class FluxstoneConfig {
     public boolean pushBookmarkedFirstOrder = true;
 
     @ConfigEntry
-    public boolean enableWorldCheatToggle = true;
+    public boolean enableWorldCheatToggle = false;
 
 
 }

@@ -15,6 +15,8 @@ public class Fluxstone extends Mod {
             case 0:
                 return first ? 0xff52349B : 0xff291755;
             case 1:
+                return first ? 0xffD76276 : 0xffC01C53;
+            case 2:
             default:
                 return first ? parseHexString(CONFIG.bookmarkGradientStart) : parseHexString(CONFIG.bookmarkGradientEnd);
         }
