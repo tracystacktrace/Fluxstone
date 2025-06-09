@@ -1,7 +1,9 @@
 
 ## [1.0.1] - 2025-06-09
+My thinkpad died while trying to fight a frozen main thread of the game.
+The lag won, so I rewrote this mod's code so a backup procedure occurs in a separate thread.
+The main thread will just silently wait and track progress.
 
-Version 1.0.1:
 - Added support for ".lang" files
 - Added Russian language translation to the mod
 - Now a manual backup occurs in off-thread to prevent the main thread from hanging and freezing
