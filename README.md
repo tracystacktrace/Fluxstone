@@ -1,6 +1,6 @@
 # Fluxstone
 
-![MOD LOGO](https://github.com/tracystacktrace/Fluxstone/raw/main/src/main/resources/assets/fluxstone/icon.png)
+<img src="https://github.com/tracystacktrace/Fluxstone/raw/main/src/main/resources/assets/fluxstone/icon.png" alt="MOD LOGO" width="256" height="256"/>
 
 This mod adds world bookmarks (or "pins" to your worlds in world list) and also allows you to do some small management over your worlds.
 
