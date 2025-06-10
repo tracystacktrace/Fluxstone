@@ -4,6 +4,11 @@
   "package": "net.tracystacktrace.fluxstone.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AccessorGuiScreen",
+    "serverlist.AccessorGuiMultiplayer",
+    "serverlist.AccessorGuiSlotServer",
+    "serverlist.MixinGuiMultiplayer",
+    "serverlist.MixinGuiSlotServer",
     "worldlist.AccessorGuiSelectWorld",
     "worldlist.MixinGuiSelectWorld",
     "worldlist.MixinInsideGuiWorldSlot",
