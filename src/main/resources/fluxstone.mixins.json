@@ -9,6 +9,7 @@
     "serverlist.AccessorGuiSlotServer",
     "serverlist.MixinGuiMultiplayer",
     "serverlist.MixinGuiSlotServer",
+    "serverlist.MixinServerData",
     "worldlist.AccessorGuiSelectWorld",
     "worldlist.MixinGuiSelectWorld",
     "worldlist.MixinInsideGuiWorldSlot",

@@ -16,7 +16,7 @@ public class SafeCasts {
         return ((AccessorGuiSelectWorld) object).getSaveList();
     }
 
-    public static AccessorGuiSlotServer getPrivateInnerClass$1(GuiMultiplayer instance) {
+    public static AccessorGuiSlotServer getGuiSlotServerWrapper(GuiMultiplayer instance) {
         return (AccessorGuiSlotServer) ((AccessorGuiScreen)instance).getControlList().get(0);
     }
 

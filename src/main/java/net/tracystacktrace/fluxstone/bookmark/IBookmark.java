@@ -11,4 +11,7 @@ public interface IBookmark {
 
     void setBookmarked(boolean b);
 
+    default void toggleBookmarked() {
+        this.setBookmarked(!this.isBookmarked());
+    }
 }
