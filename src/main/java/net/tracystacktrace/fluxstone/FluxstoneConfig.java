@@ -4,6 +4,13 @@ import com.fox2code.foxloader.config.ConfigEntry;
 
 public final class FluxstoneConfig {
 
+    /* server bookmarks */
+    @ConfigEntry
+    public boolean enableServerBookmarkIcon = true;
+
+    @ConfigEntry
+    public String serverBookmarkIcon = "\u00A76\u2B50";
+
     /* world bookmarks */
 
     @ConfigEntry

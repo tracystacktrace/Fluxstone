@@ -4,6 +4,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMultiplayer;
 import net.minecraft.client.networking.ServerData;
+import net.tracystacktrace.fluxstone.Fluxstone;
 import net.tracystacktrace.fluxstone.bookmark.IBookmark;
 import net.tracystacktrace.fluxstone.hijacks.SafeCasts;
 import net.tracystacktrace.fluxstone.mixins.AccessorGuiScreen;
@@ -44,8 +45,10 @@ public class MixinGuiSlotServer {
 
     @Redirect(method = "drawServerSlot", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiMultiplayer;drawString(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;FFI)V"))
     private void fluxstone$redirectAddBookmarkStar(GuiMultiplayer instance, FontRenderer fontRenderer, String s, float x, float y, int i) {
-        if(i == 16777215 && (this.fluxstone$dangerousMethodTapering != null && ((IBookmark)this.fluxstone$dangerousMethodTapering).isBookmarked())) { //server title
-            s = s + " STAR ";
+        if(Fluxstone.CONFIG.enableServerBookmarkIcon && i == 16777215) {
+            if ((this.fluxstone$dangerousMethodTapering != null && ((IBookmark) this.fluxstone$dangerousMethodTapering).isBookmarked())) { //server title
+                s = s + " " + Fluxstone.CONFIG.serverBookmarkIcon;
+            }
         }
         instance.drawString(fontRenderer, s, x, y, i);
     }
