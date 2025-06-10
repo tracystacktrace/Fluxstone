@@ -4,11 +4,16 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiElement;
 import net.minecraft.client.gui.GuiMultiplayer;
 import net.minecraft.client.gui.GuiSelectWorld;
+import net.minecraft.client.networking.ServerData;
 import net.minecraft.common.world.chunk.SaveFormatComparator;
+import net.tracystacktrace.fluxstone.bookmark.IBookmark;
 import net.tracystacktrace.fluxstone.mixins.AccessorGuiScreen;
+import net.tracystacktrace.fluxstone.mixins.serverlist.AccessorGuiMultiplayer;
 import net.tracystacktrace.fluxstone.mixins.serverlist.AccessorGuiSlotServer;
+import net.tracystacktrace.fluxstone.mixins.serverlist.AccessorServerList;
 import net.tracystacktrace.fluxstone.mixins.worldlist.AccessorGuiSelectWorld;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class SafeCasts {
@@ -27,5 +32,13 @@ public class SafeCasts {
             }
         }
         return null;
+    }
+
+    public static void sortServerList(Object guiMultiplayer) {
+        ((AccessorServerList)((AccessorGuiMultiplayer)guiMultiplayer).getInternetServerList()).getServerListField().sort((o1, o2) -> {
+            if (((IBookmark)o1).isBookmarked() && !((IBookmark)o2).isBookmarked()) return -1;
+            if (!((IBookmark)o1).isBookmarked() && ((IBookmark)o2).isBookmarked()) return 1;
+            return o1.serverName.compareTo(o2.serverName);
+        });
     }
 }

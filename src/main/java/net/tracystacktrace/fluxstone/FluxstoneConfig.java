@@ -11,6 +11,12 @@ public final class FluxstoneConfig {
     @ConfigEntry
     public String serverBookmarkIcon = "\u00A76\u2B50";
 
+    @ConfigEntry
+    public boolean enableServerBookmarkGradient = true;
+
+    @ConfigEntry(lowerBounds = 0, upperBounds = 2)
+    public int serverBookmarkGradient = 0;
+
     /* world bookmarks */
 
     @ConfigEntry

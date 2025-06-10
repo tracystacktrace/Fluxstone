@@ -31,7 +31,14 @@ public class MixinGuiMultiplayer extends GuiScreen {
         if(button.enabled && button.id == this.fluxstone$buttonBookmarkServer.id) {
             ServerData serverData = ((AccessorGuiMultiplayer)this).getInternetServerList().getServerData(this.selectedServer);
             ((IBookmark)serverData).toggleBookmarked();
+
+            //sort data
+            SafeCasts.sortServerList(this);
+
+            //save servers
             ((AccessorGuiMultiplayer)this).getInternetServerList().saveServerList();
+
+
             ci.cancel();
         }
     }
