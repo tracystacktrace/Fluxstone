@@ -1,4 +1,4 @@
-package net.tracystacktrace.fluxstone.mixins;
+package net.tracystacktrace.fluxstone.mixins.worldlist;
 
 import net.minecraft.common.world.chunk.SaveFormatComparator;
 import net.tracystacktrace.fluxstone.Fluxstone;
@@ -38,7 +38,7 @@ public class MixinSaveFormatComparator implements IBookmark {
 
     @Inject(method = "compareTo(Lnet/minecraft/common/world/chunk/SaveFormatComparator;)I", at = @At("HEAD"), cancellable = true)
     private void fluxstone$manipulateSaveOrder(SaveFormatComparator saveFormatComparator, CallbackInfoReturnable<Integer> cir) {
-        if (Fluxstone.CONFIG.pushBookmarkedFirstOrder) {
+        if (Fluxstone.CONFIG.pushWorldBookmarkedFirstOrder) {
             if (this.fluxstone$starred != ((IBookmark) saveFormatComparator).isBookmarked()) {
                 cir.setReturnValue(this.fluxstone$starred ? -1 : 1);
             }

@@ -11,18 +11,18 @@ public class Fluxstone extends Mod {
     }
 
     public static int getGradByType(boolean first) {
-        switch (CONFIG.bookmarkGradientType) {
+        switch (CONFIG.worldBookmarkGradient) {
             case 0:
                 return first ? 0xff52349B : 0xff291755;
             case 1:
                 return first ? 0xffD76276 : 0xffC01C53;
             case 2:
             default:
-                return first ? parseHexString(CONFIG.bookmarkGradientStart) : parseHexString(CONFIG.bookmarkGradientEnd);
+                return first ? getColorFromHexString(CONFIG.worldBookmarkGradientStart) : getColorFromHexString(CONFIG.worldBookmarkGradientEnd);
         }
     }
 
-    private static int parseHexString(String s) {
+    private static int getColorFromHexString(String s) {
         if (s == null || s.isEmpty()) return 0;
         if (s.startsWith("#")) s = s.substring(1);
 

@@ -1,4 +1,4 @@
-package net.tracystacktrace.fluxstone.mixins;
+package net.tracystacktrace.fluxstone.mixins.worldlist;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -30,7 +30,7 @@ public abstract class MixinInsideGuiWorldSlot extends Gui {
 
     @Inject(method = "drawSlot", at = @At("HEAD"))
     private void fluxstone$renderGradient1(Minecraft minecraft, int index, float x, float y, int iconHeight, Tessellator tessellator, CallbackInfo ci) {
-        if (Fluxstone.CONFIG.enableBookmarkGradient) {
+        if (Fluxstone.CONFIG.enableWorldBookmarkGradient) {
             SaveFormatComparator save = SafeCasts.getSaveListOf(this$0).get(index);
             if (((IBookmark) save).isBookmarked()) {
                 this.drawGradientRect(x + 32.0f, y, x + 248f, y + 32.0f, Fluxstone.getGradByType(true), Fluxstone.getGradByType(false));
@@ -40,8 +40,8 @@ public abstract class MixinInsideGuiWorldSlot extends Gui {
 
     @Redirect(method = "drawSlot", at = @At(value = "INVOKE", target = "Lnet/minecraft/common/world/chunk/SaveFormatComparator;getDisplayName()Ljava/lang/String;"))
     private String fluxstone$insertBookmarkIcon(SaveFormatComparator instance) {
-        if (Fluxstone.CONFIG.enableBookmarkIcon && ((IBookmark) instance).isBookmarked()) {
-            return instance.getDisplayName() + " " + Fluxstone.CONFIG.bookmarkIcon;
+        if (Fluxstone.CONFIG.enableWorldBookmarkIcon && ((IBookmark) instance).isBookmarked()) {
+            return instance.getDisplayName() + " " + Fluxstone.CONFIG.worldBookmarkIcon;
         }
         return instance.getDisplayName();
     }

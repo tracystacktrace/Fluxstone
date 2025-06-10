@@ -4,9 +4,9 @@
   "package": "net.tracystacktrace.fluxstone.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "AccessorGuiSelectWorld",
-    "MixinGuiSelectWorld",
-    "MixinInsideGuiWorldSlot",
-    "MixinSaveFormatComparator"
+    "worldlist.AccessorGuiSelectWorld",
+    "worldlist.MixinGuiSelectWorld",
+    "worldlist.MixinInsideGuiWorldSlot",
+    "worldlist.MixinSaveFormatComparator"
   ]
 }

@@ -1,9 +1,3 @@
-config.fluxstone.enableBookmarkIcon.name=§dИконка закладки§r
-config.fluxstone.enableBookmarkGradient.name=§dГрадиент закладки§r
-config.fluxstone.pushBookmarkedFirstOrder.name=§dЗакладки идут первыми§r
-config.fluxstone.enableWorldCheatToggle.name=§cМодификации мира§r
-config.fluxstone.bookmarkGradientType.name=§dТип градиента закладки§r
-
 fluxstone.worldmanager.name=Название: §a%s §r(§c%s§r)
 fluxstone.worldmanager.lastplay=Посл. посещение: §a%s
 fluxstone.worldmanager.size=Размер: §b%s

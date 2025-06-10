@@ -1,4 +1,4 @@
-package net.tracystacktrace.fluxstone.mixins;
+package net.tracystacktrace.fluxstone.mixins.worldlist;
 
 import net.minecraft.client.gui.GuiSelectWorld;
 import net.minecraft.common.world.chunk.SaveFormatComparator;

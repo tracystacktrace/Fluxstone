@@ -4,26 +4,28 @@ import com.fox2code.foxloader.config.ConfigEntry;
 
 public final class FluxstoneConfig {
 
-    @ConfigEntry
-    public boolean enableBookmarkIcon = true;
+    /* world bookmarks */
 
     @ConfigEntry
-    public String bookmarkIcon = "\u00A76\u2B50";
+    public boolean enableWorldBookmarkIcon = true;
 
     @ConfigEntry
-    public boolean enableBookmarkGradient = true;
+    public String worldBookmarkIcon = "\u00A76\u2B50";
+
+    @ConfigEntry
+    public boolean enableWorldBookmarkGradient = true;
 
     @ConfigEntry(lowerBounds = 0, upperBounds = 2)
-    public int bookmarkGradientType = 0;
+    public int worldBookmarkGradient = 0;
 
     @ConfigEntry
-    public String bookmarkGradientStart = "#FFFFFFFF";
+    public String worldBookmarkGradientStart = "#FFFFFFFF";
 
     @ConfigEntry
-    public String bookmarkGradientEnd = "#FFFFFFFF";
+    public String worldBookmarkGradientEnd = "#FFFFFFFF";
 
     @ConfigEntry
-    public boolean pushBookmarkedFirstOrder = true;
+    public boolean pushWorldBookmarkedFirstOrder = true;
 
     @ConfigEntry
     public boolean enableWorldCheatToggle = false;
