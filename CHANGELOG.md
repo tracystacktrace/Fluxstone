@@ -1,4 +1,11 @@
 
+## [1.0.3] - 2025-06-30
+
+- Added server bookmarking! Now you can bookmark and manage inside your servers list!
+- The server list GUI got some redesigning
+- Fixed some micro bugs related to world bookmarking
+- Updated the toolchain to work on `FoxLoader 2.0-alpha22`.
+
 ## [1.0.2] - 2025-06-09
 Very tiny changes, but this is the first version to be automatically assembled in GitHub Actions
 <br>
