@@ -6,6 +6,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMultiplayer;
 import net.minecraft.client.networking.ServerData;
 import net.minecraft.client.renderer.world.Tessellator;
+import net.minecraft.common.util.i18n.StringTranslate;
 import net.tracystacktrace.fluxstone.Fluxstone;
 import net.tracystacktrace.fluxstone.bookmark.IBookmark;
 import net.tracystacktrace.fluxstone.hijacks.SafeCasts;
@@ -41,13 +42,14 @@ public class MixinGuiSlotServer extends Gui {
         }
     }
 
+    //hook and "copy" the local variable to use later
     @ModifyVariable(method = "drawServerSlot", at = @At("STORE"), ordinal = 0)
     private ServerData fluxstone$modifyHookServerData(ServerData value) {
         this.fluxstone$dangerousMethodTapering = value;
         return value;
     }
 
-    //add a bookmark icon to server name
+    //add a bookmark icon to server name + change some formatting
     @Redirect(method = "drawServerSlot", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiMultiplayer;drawString(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;FFI)V"))
     private void fluxstone$redirectAddBookmarkStar(GuiMultiplayer instance, FontRenderer fontRenderer, String s, float x, float y, int i) {
         if (Fluxstone.CONFIG.enableServerBookmarkIcon && i == 16777215) {
@@ -55,6 +57,14 @@ public class MixinGuiSlotServer extends Gui {
                 s = s + " " + Fluxstone.CONFIG.serverBookmarkIcon;
             }
         }
+
+        if(i == 3158064 && s.equals(StringTranslate.getInstance().translateKey("selectServer.hiddenAddress"))) {
+            s = "";
+        } else if(i == 3158064) {
+            i = 0xFFFFFFFF;
+            s = "§9§o" + s;
+        }
+
         instance.drawString(fontRenderer, s, x, y, i);
     }
 
@@ -63,7 +73,11 @@ public class MixinGuiSlotServer extends Gui {
     private void fluxstone$injectDrawBookmarkGradient(int index, float x, float y, int iconHeight, Tessellator tessellator, CallbackInfo ci) {
         if (Fluxstone.CONFIG.enableServerBookmarkGradient) {
             if ((this.fluxstone$dangerousMethodTapering != null && ((IBookmark) this.fluxstone$dangerousMethodTapering).isBookmarked())) {
-                this.drawGradientRect(x, y, x + 216, y + 32, 0xff52349B, 0xff291755);
+                this.drawGradientRect(
+                        x, y, x + 216, y + 32,
+                        Fluxstone.getBookmarkedServerGrad(true),
+                        Fluxstone.getBookmarkedServerGrad(false)
+                );
             }
         }
     }

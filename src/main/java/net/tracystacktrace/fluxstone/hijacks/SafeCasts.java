@@ -4,7 +4,6 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiElement;
 import net.minecraft.client.gui.GuiMultiplayer;
 import net.minecraft.client.gui.GuiSelectWorld;
-import net.minecraft.client.networking.ServerData;
 import net.minecraft.common.world.chunk.SaveFormatComparator;
 import net.tracystacktrace.fluxstone.bookmark.IBookmark;
 import net.tracystacktrace.fluxstone.mixins.AccessorGuiScreen;
@@ -13,7 +12,6 @@ import net.tracystacktrace.fluxstone.mixins.serverlist.AccessorGuiSlotServer;
 import net.tracystacktrace.fluxstone.mixins.serverlist.AccessorServerList;
 import net.tracystacktrace.fluxstone.mixins.worldlist.AccessorGuiSelectWorld;
 
-import java.util.Comparator;
 import java.util.List;
 
 public class SafeCasts {

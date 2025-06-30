@@ -10,7 +10,7 @@ public class Fluxstone extends Mod {
         this.setConfigObject(CONFIG);
     }
 
-    public static int getGradByType(boolean first) {
+    public static int getBookmarkedWorldGrad(boolean first) {
         switch (CONFIG.worldBookmarkGradient) {
             case 0:
                 return first ? 0xff52349B : 0xff291755;
@@ -19,6 +19,18 @@ public class Fluxstone extends Mod {
             case 2:
             default:
                 return first ? getColorFromHexString(CONFIG.worldBookmarkGradientStart) : getColorFromHexString(CONFIG.worldBookmarkGradientEnd);
+        }
+    }
+
+    public static int getBookmarkedServerGrad(boolean first) {
+        switch (CONFIG.serverBookmarkGradient) {
+            case 0:
+                return first ? 0xff52349B : 0xff291755;
+            case 1:
+                return first ? 0xffD76276 : 0xffC01C53;
+            case 2:
+            default:
+                return first ? getColorFromHexString(CONFIG.serverBookmarkGradientStart) : getColorFromHexString(CONFIG.serverBookmarkGradientEnd);
         }
     }
 

@@ -33,7 +33,7 @@ public abstract class MixinInsideGuiWorldSlot extends Gui {
         if (Fluxstone.CONFIG.enableWorldBookmarkGradient) {
             SaveFormatComparator save = SafeCasts.getSaveListOf(this$0).get(index);
             if (((IBookmark) save).isBookmarked()) {
-                this.drawGradientRect(x + 32.0f, y, x + 248f, y + 32.0f, Fluxstone.getGradByType(true), Fluxstone.getGradByType(false));
+                this.drawGradientRect(x + 32.0f, y, x + 248f, y + 32.0f, Fluxstone.getBookmarkedWorldGrad(true), Fluxstone.getBookmarkedWorldGrad(false));
             }
         }
     }

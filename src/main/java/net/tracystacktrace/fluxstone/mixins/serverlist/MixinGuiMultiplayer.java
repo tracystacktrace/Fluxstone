@@ -4,6 +4,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMultiplayer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.networking.ServerData;
+import net.tracystacktrace.fluxstone.Fluxstone;
 import net.tracystacktrace.fluxstone.bookmark.IBookmark;
 import net.tracystacktrace.fluxstone.hijacks.SafeCasts;
 import org.spongepowered.asm.mixin.Mixin;
@@ -33,7 +34,9 @@ public class MixinGuiMultiplayer extends GuiScreen {
             ((IBookmark)serverData).toggleBookmarked();
 
             //sort data
-            SafeCasts.sortServerList(this);
+            if(Fluxstone.CONFIG.pushServerBookmarkedFirstOrder) {
+                SafeCasts.sortServerList(this);
+            }
 
             //save servers
             ((AccessorGuiMultiplayer)this).getInternetServerList().saveServerList();

@@ -17,6 +17,15 @@ public final class FluxstoneConfig {
     @ConfigEntry(lowerBounds = 0, upperBounds = 2)
     public int serverBookmarkGradient = 0;
 
+    @ConfigEntry
+    public String serverBookmarkGradientStart = "#FFFFFFFF";
+
+    @ConfigEntry
+    public String serverBookmarkGradientEnd = "#FFFFFFFF";
+
+    @ConfigEntry
+    public boolean pushServerBookmarkedFirstOrder = true;
+
     /* world bookmarks */
 
     @ConfigEntry
@@ -42,6 +51,5 @@ public final class FluxstoneConfig {
 
     @ConfigEntry
     public boolean enableWorldCheatToggle = false;
-
 
 }
